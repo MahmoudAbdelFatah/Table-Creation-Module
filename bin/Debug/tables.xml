@@ -1,0 +1,98 @@
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="ConstraintTable">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="TableName">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="25" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="ColName">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="25" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="Constraint">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="200" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="TableColName">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="50" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="t1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="id" type="xs:short" minOccurs="0" />
+                <xs:element name="name">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:maxLength value="25" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="id2" type="xs:short" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1">
+        <xs:selector xpath=".//ConstraintTable" />
+        <xs:field xpath="TableColName" />
+      </xs:unique>
+      <xs:unique name="t1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//t1" />
+        <xs:field xpath="name" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <ConstraintTable>
+    <TableName>1</TableName>
+    <ColName>1</ColName>
+    <Constraint>&gt; 10,&lt;12</Constraint>
+    <TableColName>****************************</TableColName>
+  </ConstraintTable>
+  <ConstraintTable>
+    <TableName>t1</TableName>
+    <ColName>id</ColName>
+    <Constraint>id &lt; 24,id &gt; 1</Constraint>
+    <TableColName>t1id</TableColName>
+  </ConstraintTable>
+  <ConstraintTable>
+    <TableName>t1</TableName>
+    <ColName>id2</ColName>
+    <Constraint>id2 != 5</Constraint>
+    <TableColName>t1id2</TableColName>
+  </ConstraintTable>
+  <t1>
+    <name>cd</name>
+    <id2>2</id2>
+  </t1>
+  <t1>
+    <id>5</id>
+    <name>de</name>
+    <id2>2</id2>
+  </t1>
+  <t1>
+    <name>5</name>
+    <id2>55</id2>
+  </t1>
+</NewDataSet>
